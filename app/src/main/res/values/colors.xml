@@ -8,8 +8,11 @@
     <color name="line">#D2D2D2</color>
 
     <color name="green1">#45C01A</color>
+    <color name="green2">#A3DEA3</color>
 
     <color name="black0">#000000</color>
 
     <color name="gray3">#c8969696</color>
+    <color name="gray4">#F5F5F5</color>
+    <color name="gray7">#999999</color>
 </resources>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="net.george.georgechat.RegisterActivity">
 
-    <include android:layout="@layout/include_toolbar"
+    <include layout="@layout/include_toolbar"
         android:id="@+id/toolbarLayout" />
 
     <TextView
@@ -36,4 +36,154 @@
     <View
         style="@style/line"
         app:layout_constraintTop_toBottomOf="@id/nicknameText" />
+    <TextView
+        android:id="@+id/regionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="国家/地区"
+        android:textColor="@color/black0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nicknameText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中国"
+        android:textColor="@color/green1"
+        android:textSize="20sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nicknameText"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
+    <View
+        style="@style/line"
+        app:layout_constraintTop_toBottomOf="@id/regionText" />
+    <TextView
+        android:id="@+id/numberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+86"
+        android:textColor="@color/black0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/regionText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/regionText"
+        android:background="@null"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColorHint="@color/gray3"
+        android:textSize="20sp"
+        android:hint="你的手机号码"
+        android:inputType="phone"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/numberText"/>
+    <View
+        style="@style/line"
+        app:layout_constraintTop_toBottomOf="@id/numberText" />
+    <TextView
+        android:id="@+id/passText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码"
+        android:textColor="@color/black0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/passEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/numberText"
+        android:background="@null"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColorHint="@color/gray3"
+        android:textSize="20sp"
+        android:hint="填写密码"
+        android:inputType="textPassword"
+        app:layout_constraintRight_toLeftOf="@id/showPassImg"
+        app:layout_constraintLeft_toRightOf="@id/passText" />
+    <ImageView
+        android:id="@+id/showPassImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/numberText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/passEdit"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/ic_see_pwd"/>
+    <View
+        android:id="@+id/passDivider"
+        style="@style/line"
+        app:layout_constraintTop_toBottomOf="@id/passText" />
+    <TextView
+        android:id="@+id/verificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="验证码"
+        android:textColor="@color/black0"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/verificationEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/passText"
+        android:background="@null"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColorHint="@color/gray3"
+        android:textSize="20sp"
+        android:hint="请输入验证码"
+        android:inputType="textPassword"
+        app:layout_constraintRight_toLeftOf="@id/btnSendVerification"
+        app:layout_constraintLeft_toRightOf="@id/verificationText" />
+    <Button
+        android:id="@+id/btnSendVerification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/passDivider"
+        app:layout_constraintBottom_toTopOf="@id/verfiDivider"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:enabled="true"
+        android:text="发送验证码"
+        android:background="@drawable/selector_register_send_code"
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textSize="24sp"
+        android:background="@drawable/select_register"
+        android:textColor="@color/select_register"
+        android:enabled="false"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/verfiDivider"/>
+    <View
+        android:id="@+id/verfiDivider"
+        style="@style/line"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/verificationText" />
 </android.support.constraint.ConstraintLayout>
