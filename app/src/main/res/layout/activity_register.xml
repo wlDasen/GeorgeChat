@@ -21,6 +21,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
     <EditText
+        android:id="@+id/nicknameEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
@@ -71,20 +72,22 @@
         app:layout_constraintTop_toBottomOf="@id/regionText"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
+
     <EditText
+        android:id="@+id/numberEdit"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/regionText"
-        android:background="@null"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_height="25dp"
         android:layout_marginLeft="20dp"
-        android:textColorHint="@color/gray3"
-        android:textSize="20sp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
         android:hint="你的手机号码"
         android:inputType="phone"
+        android:textColorHint="@color/gray3"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@id/numberText"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/numberText"/>
+        app:layout_constraintTop_toBottomOf="@id/regionText" />
     <View
         style="@style/line"
         app:layout_constraintTop_toBottomOf="@id/numberText" />
@@ -99,21 +102,23 @@
         app:layout_constraintTop_toBottomOf="@id/numberText"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
+
     <EditText
         android:id="@+id/passEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/numberText"
-        android:background="@null"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:textColorHint="@color/gray3"
-        android:textSize="20sp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@null"
         android:hint="填写密码"
         android:inputType="textPassword"
+        android:textColorHint="@color/gray3"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toRightOf="@id/passText"
         app:layout_constraintRight_toLeftOf="@id/showPassImg"
-        app:layout_constraintLeft_toRightOf="@id/passText" />
+        app:layout_constraintTop_toBottomOf="@id/numberText" />
     <ImageView
         android:id="@+id/showPassImg"
         android:layout_width="wrap_content"
@@ -168,6 +173,7 @@
         android:textSize="20sp"
         android:textColor="@color/white"/>
     <Button
+        android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="注册"

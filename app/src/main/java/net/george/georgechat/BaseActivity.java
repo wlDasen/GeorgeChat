@@ -24,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         init();
         setContentView(provideLayoutView());
         ButterKnife.bind(this);
+        initData();
         initListener();
     }
 
@@ -51,4 +52,9 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 子类初始化监听器接口
      */
     public void initListener() {}
+
+    /**
+     * 子类初始化数据接口
+     */
+    public void initData() {}
 }
