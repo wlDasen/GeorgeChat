@@ -4,12 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import net.george.georgechat.utils.UIUtils;
 
 import butterknife.BindView;
 
 public class RegisterActivity extends BaseActivity {
+    private static final String TAG = "jpd-RstAc";
     @BindView(R.id.nicknameEdit)
     EditText mNicknameEdit;
     @BindView(R.id.numberEdit)
@@ -20,6 +25,14 @@ public class RegisterActivity extends BaseActivity {
     EditText mVerifiEdit;
     @BindView(R.id.btnRegister)
     Button mRegister;
+    @BindView(R.id.nicknameDivider)
+    View mNickDivider;
+    @BindView(R.id.numberDivider)
+    View mNumberDivider;
+    @BindView(R.id.passDivider)
+    View mPassDivider;
+    @BindView(R.id.verfiDivider)
+    View mVerifDivider;
     private TextWatcher textWatcher;
 
     @Override
@@ -53,6 +66,54 @@ public class RegisterActivity extends BaseActivity {
         mNumberEdit.addTextChangedListener(textWatcher);
         mPassEdit.addTextChangedListener(textWatcher);
         mVerifiEdit.addTextChangedListener(textWatcher);
+        mNicknameEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    Log.d(TAG, "onFocusChange: nickname hasfocus.");
+                    mNickDivider.setBackgroundColor(UIUtils.getColor(R.color.green1));
+                } else {
+                    Log.d(TAG, "onFocusChange: nickname nofocus.");
+                    mNickDivider.setBackgroundColor(UIUtils.getColor(R.color.line));
+                }
+            }
+        });
+        mNumberEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    Log.d(TAG, "onFocusChange: number hasfocus.");
+                    mNumberDivider.setBackgroundColor(UIUtils.getColor(R.color.green1));
+                } else {
+                    Log.d(TAG, "onFocusChange: number nofocus.");
+                    mNumberDivider.setBackgroundColor(UIUtils.getColor(R.color.line));
+                }
+            }
+        });
+        mPassEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    Log.d(TAG, "onFocusChange: pass hasfocus.");
+                    mPassDivider.setBackgroundColor(UIUtils.getColor(R.color.green1));
+                } else {
+                    Log.d(TAG, "onFocusChange: pass nofocus.");
+                    mPassDivider.setBackgroundColor(UIUtils.getColor(R.color.line));
+                }
+            }
+        });
+        mVerifiEdit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    Log.d(TAG, "onFocusChange: verif hasfocus.");
+                    mVerifDivider.setBackgroundColor(UIUtils.getColor(R.color.green1));
+                } else {
+                    Log.d(TAG, "onFocusChange: verif nofocus.");
+                    mVerifDivider.setBackgroundColor(UIUtils.getColor(R.color.line));
+                }
+            }
+        });
     }
 
     /**

@@ -36,6 +36,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/nicknameText" />
     <View
+        android:id="@+id/nicknameDivider"
         style="@style/line"
         app:layout_constraintTop_toBottomOf="@id/nicknameText" />
     <TextView
@@ -60,6 +61,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"/>
     <View
+        android:id="@+id/regionDivider"
         style="@style/line"
         app:layout_constraintTop_toBottomOf="@id/regionText" />
     <TextView
@@ -73,7 +75,6 @@
         app:layout_constraintTop_toBottomOf="@id/regionText"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
-
     <EditText
         android:id="@+id/numberEdit"
         android:layout_width="0dp"
@@ -91,6 +92,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/regionText" />
     <View
+        android:id="@+id/numberDivider"
         style="@style/line"
         app:layout_constraintTop_toBottomOf="@id/numberText" />
     <TextView
