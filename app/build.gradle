@@ -1,6 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+    // productFlavors是为了避免每次运行都把DEX重新加载一遍而设置的两套运行配置
+    productFlavors {
+        dev {
+            minSdkVersion 21
+        }
+        prod {
+            minSdkVersion 14
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "net.george.georgechat"
@@ -8,13 +17,20 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // 设置MultiDex可用
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    // 保证其他的lib没有被preDex
+    dexOptions {
+        preDexLibraries = false
     }
 }
 
@@ -25,11 +41,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // 支持AppBarLayout布局
+    implementation 'com.android.support:design:26.1.0'
+    // MultiDex的依赖
+    compile 'com.android.support:multidex:1.0.2'
     // 危险权限请求Library
     compile 'net.george.permission:george-permission:0.0.2'
     // 去除大量的findViewById，简化代码
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    // 支持AppBarLayout布局
-    implementation 'com.android.support:design:26.1.0'
 }
