@@ -1,19 +1,29 @@
 package net.george.georgechat;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import net.george.georgechat.presenter.BasePresenter;
+import net.george.georgechat.presenter.PresenterAtView;
 import net.george.georgechat.utils.UIUtils;
+import net.george.georgechat.view.IRegisterAtView;
 
 import butterknife.BindView;
 
-public class RegisterActivity extends BaseActivity {
+/**
+ * @author George
+ * @date 2017/12/25
+ * @email georgejiapeidi@gmail.com
+ * @describe 注册Activity
+ */
+public class RegisterActivity extends BaseActivity<IRegisterAtView, PresenterAtView> implements IRegisterAtView {
     private static final String TAG = "jpd-RstAc";
     @BindView(R.id.nicknameEdit)
     EditText mNicknameEdit;
@@ -33,6 +43,8 @@ public class RegisterActivity extends BaseActivity {
     View mPassDivider;
     @BindView(R.id.verfiDivider)
     View mVerifDivider;
+    @BindView(R.id.showPassImg)
+    ImageView mShowpassImg;
     private TextWatcher textWatcher;
 
     @Override
@@ -58,6 +70,11 @@ public class RegisterActivity extends BaseActivity {
 
             }
         };
+        mShowpassImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
     }
 
     @Override
@@ -114,6 +131,29 @@ public class RegisterActivity extends BaseActivity {
                 }
             }
         });
+        mShowpassImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mPassEdit.getTransformationMethod() == HideReturnsTransformationMethod.getInstance()) {
+                    mPassEdit.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    mShowpassImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_register_password_visible));
+                } else {
+                    mPassEdit.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    mShowpassImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_register_password_invisible));
+                }
+                mPassEdit.setSelection(mPassEdit.getText().toString().trim().length());
+            }
+        });
+    }
+
+    @Override
+    protected PresenterAtView createPresenter() {
+        return new PresenterAtView(this);
+    }
+
+    @Override
+    public EditText getNumberEdit() {
+        return mNumberEdit;
     }
 
     /**

@@ -126,14 +126,14 @@
         app:layout_constraintTop_toBottomOf="@id/numberText" />
     <ImageView
         android:id="@+id/showPassImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/numberText"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toBottomOf="@id/numberDivider"
+        app:layout_constraintBottom_toTopOf="@id/passDivider"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/passEdit"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:src="@mipmap/ic_see_pwd"/>
+        android:src="@mipmap/ic_register_password_invisible"/>
     <View
         android:id="@+id/passDivider"
         style="@style/line"
