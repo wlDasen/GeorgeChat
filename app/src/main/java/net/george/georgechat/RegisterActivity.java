@@ -35,6 +35,8 @@ public class RegisterActivity extends BaseActivity<IRegisterAtView, PresenterAtV
     EditText mVerifiEdit;
     @BindView(R.id.btnRegister)
     Button mRegister;
+    @BindView(R.id.btnSendVerification)
+    Button mSendVerif;
     @BindView(R.id.nicknameDivider)
     View mNickDivider;
     @BindView(R.id.numberDivider)
@@ -142,6 +144,13 @@ public class RegisterActivity extends BaseActivity<IRegisterAtView, PresenterAtV
                     mShowpassImg.setImageDrawable(getResources().getDrawable(R.mipmap.ic_register_password_invisible));
                 }
                 mPassEdit.setSelection(mPassEdit.getText().toString().trim().length());
+            }
+        });
+        mSendVerif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: ");
+                mPresenter.sendCode();
             }
         });
     }

@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import net.george.georgechat.presenter.BasePresenter;
+import net.george.georgechat.widget.CustomDialog;
 
 import butterknife.ButterKnife;
 
@@ -19,6 +23,7 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
     private static final String TAG = "jpd-BAc";
     protected T mPresenter;
+    private CustomDialog mDialog;
     
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,6 +56,29 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     public void jumpToActivity(Class activity) {
         Intent intent = new Intent(this, activity);
         startActivity(intent);
+    }
+
+    /**
+     * 展示发送验证码的等待界面
+     */
+    public void showWaitingDialog(String msg) {
+        hideWaitingDialog();
+        View view = LayoutInflater.from(this).inflate(R.layout.custom_dialog_waiting_layout, null);
+        TextView text = (TextView)view.findViewById(R.id.cw_text_view);
+        text.setText(msg);
+        mDialog = new CustomDialog(this, view, R.style.CustomDialogTheme);
+        mDialog.show();
+        mDialog.setCancelable(false);
+    }
+
+    /**
+     * 隐藏等待界面
+     */
+    public void hideWaitingDialog() {
+        if (mDialog != null) {
+            mDialog.dismiss();
+            mDialog = null;
+        }
     }
 
     /**

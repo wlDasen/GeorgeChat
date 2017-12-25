@@ -32,5 +32,6 @@ public class PresenterAtView extends BasePresenter<IRegisterAtView> {
             UIUtils.showToast("手机格式有误");
             return;
         }
+        mActivity.showWaitingDialog("请稍等");
     }
 }

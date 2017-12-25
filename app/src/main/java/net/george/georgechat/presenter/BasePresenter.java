@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
  * @describe 基类Presenter，保持View的弱引用防止Memory Leak
  */
 public class BasePresenter<V> {
-    private BaseActivity mActivity;
+    public BaseActivity mActivity;
     private Reference<V> mViewRef;
 
     public BasePresenter(BaseActivity activity) {
