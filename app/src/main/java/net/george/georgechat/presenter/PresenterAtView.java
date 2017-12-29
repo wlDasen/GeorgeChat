@@ -2,7 +2,6 @@ package net.george.georgechat.presenter;
 
 
 import android.text.TextUtils;
-
 import net.george.georgechat.BaseActivity;
 import net.george.georgechat.utils.RegularUtils;
 import net.george.georgechat.utils.UIUtils;

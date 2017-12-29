@@ -50,4 +50,11 @@ dependencies {
     // 去除大量的findViewById，简化代码
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    // Retrofit+Rxjava+Okhttp
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 }
